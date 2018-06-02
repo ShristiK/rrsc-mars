@@ -1,4 +1,4 @@
-# Crater and Sand Dune detection on Mars
+# Crater and Sand Dune detection on Mars and Moon
 
 ## tuts folder contains mainly my implementation of sendtex tutorials
 
