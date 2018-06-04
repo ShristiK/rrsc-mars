@@ -56,7 +56,7 @@ def extractEdge(img):
     # Need to automate threshold values
     otsu, _ = cv2.threshold(img, 0, 225, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
     print(otsu)
-    edges = cv2.Canny(img, int(otsu) , int(otsu*1.5))
+    edges = cv2.Canny(img, 70,180 )
     
     # img = cv2.resize(img,(0,0), fx=0.1, fy=0.1)
     # edges = cv2.resize(edges, (0,0), fx=0.1, fy=0.1)
@@ -76,6 +76,7 @@ def main():
     # extractRed(img)
     # extractEdge(img)
     #transform(img)
-    extractEdge(mars1[1000:1400, 1800:2000])
+    w, _, _ = mars1.shape
+    extractEdge(mars1[w-700:w, 0:700])
 
 main()
