@@ -1,6 +1,6 @@
 # Crater and Sand Dune detection on Mars and Moon
 
-1. ##**Preprocessing** (Both Optical & DEM)
+1. ## **Preprocessing** (Both Optical & DEM)
     1. **Noise Filter** 
     The Median filter will be used with a 5X5 window size.
     2. **Area Filter**
@@ -11,7 +11,7 @@
     The area filtered binary image and DEM is converted back to grayscale using matlab function im2uint16.
     The shape filter is applied on the resulting images.
 
-2. ##**Crater Detection**
+2. ## **Crater Detection**
     1. ### **Optical Image**
         1. **Wavelet Transform** 
             Wavelet transform has been applied on the preprocessed image (TMC and MiniSAR) to get multiscale 2-D wavelet decomposition of            gray scale preprocessed image and the corresponding detailed coefficients (horizontal, vertical and diagonal edges responses).
