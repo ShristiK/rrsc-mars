@@ -12,7 +12,7 @@
     The shape filter is applied on the resulting images.
 
 2. **Crater Detection**
-    1. **Optical Image**
+    1. # **Optical Image**
         1. **Wavelet Transform** 
             Wavelet transform has been applied on the preprocessed image (TMC and MiniSAR) to get multiscale 2-D wavelet decomposition of gray scale preprocessed image and the corresponding detailed coefficients (horizontal, vertical and diagonal edges responses).
             **The steps:** 
@@ -28,7 +28,7 @@
         2. **Generalized Hough Transform**
             Hough transform is generally used for edge linking and boundary detection purposes in the image segmentation process. Results of edge detection methods may contain sparse points, instead of straight lines or curves. Therefore, there is need to fit a line to these edge points. In the methodology of this work, generalized Hough transform has been used as an image segmentation technique in image based crater detection approach applied on TMC and MiniSAR images. The generalized Hough Transform has been implemented in MATLAB, as per the given equations (Ballard, 1981) for the input preprocessed image. 
             **Steps :**
-            
+
             1. Read the original image. 
             2. Preprocessing of the image is done. 
             3. The Sobel edge detector has been used to get all the edges of objects (craters) in the preprocessed image. Hence binary egde image is obtained. 
