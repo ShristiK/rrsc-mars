@@ -26,3 +26,9 @@ def shapeFilter(img, r):
     res = cv2.filter2D(img, -1, disk)
     return res
     
+def preProc(img):
+    res1 = noiseFilter(img, 5)
+    res2 = areaFilter(res1)
+    res3 = shapeFilter(res2, 5)
+    return res3
+
