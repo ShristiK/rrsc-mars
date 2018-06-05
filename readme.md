@@ -12,7 +12,7 @@
     The shape filter is applied on the resulting images.
 
 2. **Crater Detection**
-    1. **Optical Image**
+    1. # **Optical Image**
         1. **Wavelet Transform** 
             Wavelet transform has been applied on the preprocessed image (TMC and MiniSAR) to get multiscale 2-D wavelet decomposition of            gray scale preprocessed image and the corresponding detailed coefficients (horizontal, vertical and diagonal edges responses).
             **The steps:**
