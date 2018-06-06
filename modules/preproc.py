@@ -1,10 +1,12 @@
 import cv2
 import numpy as np 
 
+# Applies medianBlur of ksize kernel
 def noiseFilter(img, ksize):
     res = cv2.medianBlur(img, ksize)
     return res
     
+# Remove Objects with less than 1000px (Incomplete)
 def areaFilter(img):
     img = noiseFilter(img, 5)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -13,6 +15,7 @@ def areaFilter(img):
         
     return bin
 
+# Apply Disc shaped filter to remove non disc elements (Incomplete)
 def shapeFilter(img, r):
     size = 2*r+1
     # Disk shaped kernel 
@@ -25,7 +28,8 @@ def shapeFilter(img, r):
                 disk[i,j] = 1
     res = cv2.filter2D(img, -1, disk)
     return res
-    
+
+# Applies Preprocessing method implemented in the research paper (Incomplete)
 def preProc(img):
     res1 = noiseFilter(img, 5)
     res2 = areaFilter(res1)
