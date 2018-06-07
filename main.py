@@ -5,9 +5,10 @@ import modules.preproc as pp
 
 # Main function
 def main():
-    img = cv2.imread('images/sample/Sample_1_ESP_045812_1865.jpg')
+    img = cv2.imread('images/sample/Sample_1_ESP_022855_1270.jpg')
     # res1 = ca.watershed(img)
-    res1 = ca.houghTransform(img)
+    # res1 = ca.houghTransform(img)
+    res1 = areaFilter(img)
     
     # kernel = np.ones((3,3), np.uint8)
     # res1 = cv2.morphologyEx(res1, cv2.MORPH_OPEN, kernel)
