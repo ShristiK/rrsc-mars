@@ -1,5 +1,6 @@
 import cv2
 import numpy as np 
+import preproc as pp
 
 def transform(img):
     #Removing FalsePositives and FalseNegatives
@@ -76,7 +77,10 @@ def main():
     # extractRed(img)
     # extractEdge(img)
     #transform(img)
-    w, _, _ = mars1.shape
-    extractEdge(mars1[w-700:w, 0:700])
+    img1 = pp.noiseFilter(img, 5)
+    cv2.imshow('original', img)
+    cv2.imshow('filter', img1)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
 main()
