@@ -1,6 +1,6 @@
 import cv2
 import numpy as np 
-import pywt 
+# import pywt
 
 # Default mode is Haar and level = 1
 def waveletTransform(img , mode = 'haar', level = 1):
