@@ -3,14 +3,13 @@ import numpy as np
 # import pywt
 
 # Default mode is Haar and level = 1
-def waveletTransform(img , mode = 'haar', level = 1):
+def waveletTransform(img , mode = 'haar', level = 3):
     ## Datatype conversions
     # Convert image to grayscale
-    # img  = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    img  = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     # Convert to float
     img  =  np.float32(img)   
     img /= 255
-    
     # Compute coefficients for transformation
     coeffs = pywt.wavedec2(img, mode, level=level)
 
@@ -33,7 +32,7 @@ def watershed(img):
  
     # noise removal
     kernel = np.ones((3,3),np.uint8)
-    opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN,kernel, iterations = 2)
+    opening = cv2.morphologyEx(thresh,cv2.MORPH_OPEN,kernel, iterations = 1)
  
     # sure background area
     sure_bg = cv2.dilate(opening,kernel,iterations=3)
@@ -59,13 +58,13 @@ def watershed(img):
 def houghTransform(img):
     img = cv2.medianBlur(img, 5)
     img = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-    circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,20,
-                            param1=50,param2=30,minRadius=0,maxRadius=0)
+    circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,1,21,
+                                param1=50,param2=30,minRadius=0,maxRadius=0)
     circles = np.uint16(np.around(circles))
     for i in circles[0,:]:
         cv2.circle(img, (i[0],i[1]), i[2], (0,255,0), 2)
         # draw the center of the circle
-        cv2.circle(img,(i[0],i[1]),2,(0,0,255),3)
+        cv2.circle(img, (i[0],i[1]), 2, (0,0,255), 3)
     
     return img
     
